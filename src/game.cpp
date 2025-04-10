@@ -35,14 +35,8 @@ void Game::HandleInput() {
 }
 
 void Game::TurnPlayer(int direction) {
+    // int queueDirection = direction;
     player.facing = direction;
-    // if (ceil(player.posY) == player.posY && ceil(player.posX) == player.posX) {
-    //     player.facing = direction;
-    // }
-    // switch (direction) {
-    //     case 2: // Right.
-    //     for ()
-    // }
 }
 
 bool Game::CanMove(float newX, float newY) {
