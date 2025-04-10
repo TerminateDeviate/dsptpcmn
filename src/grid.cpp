@@ -23,9 +23,9 @@ void Grid::Initialise() {
 void Grid::Print() {
     for (int row = 0; row < numRows; row++) {
         for (int column = 0; column < numCols; column++) {
-            std::cout << grid[row][column] << " ";
+            // std::cout << grid[row][column] << " ";
         }
-        std::cout << std::endl;
+        // std::cout << std::endl;
     }
 }
 

@@ -2,6 +2,8 @@
 #include <raylib.h>
 #include <vector>
 
+// Bloody Americans.
+
 extern const Color red;
 extern const Color green;
 extern const Color yellow;

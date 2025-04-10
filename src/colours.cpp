@@ -35,5 +35,5 @@ const Color fg3 = {189, 174, 147, 255};
 const Color fg4 = {168, 153, 132, 255}; 
 
 std::vector<Color> GetCellColours() {
-    return {bg0, bg2, blue, yellow, orange, yellow, purple, aqua, blue};
+    return {bg0, bg2, blue, yellow, red, purple, purple, aqua, blue};
 }
