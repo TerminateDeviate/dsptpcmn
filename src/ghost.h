@@ -3,13 +3,21 @@
 #include <vector>
 #include <raylib.h>
 #include <string>
+#include <iostream>
 
 class Ghost : public Mob{
     public:
+    Ghost() {
+        posX = 0;
+        posY = 0;
+        rot = 0;
+        colour = 0;
+    } 
+
     Ghost(int initPosX, int initPosY, int initRot, int initColour){
         posX = initPosX;
         posY = initPosY;
-        rot = initColour;
+        rot = initRot;
         colour = initColour;
     }
 };
@@ -31,4 +39,41 @@ class Pinky : public Ghost {
 class GhostFactory {
     public:
     static Ghost* CreateGhost(std::string type);
+};
+
+class GhostStates {
+    public:
+    static void SetState(Ghost* ghost, int state);
+};
+
+// DECORATORS
+
+class GhostDecorator : public Ghost {
+    protected:
+    Ghost* ghostWrapped;
+
+    public:
+    GhostDecorator(Ghost* ghost) {
+        ghostWrapped = ghost;
+    }
+
+    float speed() override {
+        return ghostWrapped->speed(); 
+    }
+
+    virtual ~GhostDecorator() {
+        delete ghostWrapped;
+    }
+};
+
+class DoubleSpeedDecorator : public GhostDecorator{
+    public:
+    DoubleSpeedDecorator(Ghost* ghost)
+        : GhostDecorator(ghost)
+    {}
+
+    float speed() override {
+        // std::cout << "FUCKFUCKFUCKFUCKAUOGAWIOUJEFOIAWJOFJ" << std::endl;
+        return ghostWrapped->speed() * 2; 
+    }
 };

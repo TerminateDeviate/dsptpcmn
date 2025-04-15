@@ -12,10 +12,10 @@ public:
     bool CanMove(int rot, int grid[31][28]);
     float posX;
     float posY;
-    float speed;
     int rot;
     int queuedRot;
     int colour;
+    virtual float speed();
     virtual ~Mob();
 private:
     std::vector<Color> colours;

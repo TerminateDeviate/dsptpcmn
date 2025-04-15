@@ -11,7 +11,6 @@ Mob::Mob() {
 }
 
 void Mob::Initialise() {
-    speed = 0.1;
     rot = 0;
     queuedRot = 0;
 }
@@ -26,22 +25,22 @@ void Mob::Move(int rot) {
     switch (rot) {
         // UP
         case 1:
-            posY -= speed;
+            posY -= speed();
             if (posY <= 0) posY = 30;
             break;
         // RIGHT
         case 2:
-            posX += speed;
+            posX += speed();
             if (posX > 27) posX = 0;
             break;
         // DOWN
         case 3:
-            posY += speed;
+            posY += speed();
             if (posY > 30) posY = 0;
             break;
         // LEFT
         case 4:
-            posX -= speed;
+            posX -= speed();
             if (posX <= 0) posX = 27;
             break;
     }
@@ -61,6 +60,10 @@ bool Mob::CanMove(int rot, int grid[31][28]) {
     //     return false;
     // }
     // return true;
+}
+
+float Mob::speed() {
+    return 0.1;
 }
 
 Mob::~Mob() {}
