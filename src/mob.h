@@ -16,6 +16,7 @@ public:
     int rot;
     int queuedRot;
     int colour;
+    virtual ~Mob();
 private:
     std::vector<Color> colours;
 };

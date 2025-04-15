@@ -2,12 +2,16 @@
 #include "ghost.h"
 #include <raylib.h>
 #include <math.h>
+#include <memory>
 
 Game::Game() {
     grid = Grid();
     player.posX = 1;
     player.posY = 1;
     player.colour = 3;
+
+    blinky = GhostFactory::CreateGhost("Blinky");
+    pinky  = GhostFactory::CreateGhost("Pinky");
 }
 
 void Game::Update() {
@@ -18,8 +22,8 @@ void Game::Update() {
 void Game::Draw() {
     grid.Draw();
     player.Draw();
-    blinky.Draw();
-    pinky.Draw();
+    blinky->Draw();
+    pinky->Draw();
 }
 
 void Game::HandleInput() {
@@ -41,4 +45,9 @@ void Game::HandleInput() {
             player.Rotate(4);
             break;
     }  
+}      
+
+Game::~Game() {
+    delete blinky;
+    delete pinky;
 }

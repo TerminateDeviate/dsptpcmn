@@ -8,11 +8,16 @@ class Game {
         Game();
         Grid grid;
         Player player;
-        Blinky blinky;
-        Pinky pinky;
         void Update();
         void Draw();
+        void Die();
         void HandleInput();
-        std::vector<Ghost*> ghosts;
+        void CreateGhosts();
+        std::vector<Ghost> ghosts;
+        std::vector<Ghost> GetAllGhosts();
+
+        Ghost* blinky;
+        Ghost* pinky;
+        ~Game();
     private:
 };

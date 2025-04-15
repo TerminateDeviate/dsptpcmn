@@ -22,17 +22,34 @@ void Mob::Draw() {
 }
 
 void Mob::Move(int rot) {
+    // TODO: UNHARCODE WITH PROPER WIDTH AND HEIGHT (28 BY 31)
     switch (rot) {
-        case 1: posY -= speed; break;
-        case 2: posX += speed; break;
-        case 3: posY += speed; break;
-        case 4: posX -= speed; break;
+        // UP
+        case 1:
+            posY -= speed;
+            if (posY <= 0) posY = 30;
+            break;
+        // RIGHT
+        case 2:
+            posX += speed;
+            if (posX > 27) posX = 0;
+            break;
+        // DOWN
+        case 3:
+            posY += speed;
+            if (posY > 30) posY = 0;
+            break;
+        // LEFT
+        case 4:
+            posX -= speed;
+            if (posX <= 0) posX = 27;
+            break;
     }
 }
 
 void Mob::Rotate(int newRot) {
     // queuedRot = newRot;
-    // if (CanMove(rot)) {
+    // if (CanMove(newRot)) {
     //     rot = queuedRot;
     // }
     rot = newRot;
@@ -45,3 +62,5 @@ bool Mob::CanMove(int rot, int grid[31][28]) {
     // }
     // return true;
 }
+
+Mob::~Mob() {}
